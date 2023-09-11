@@ -26,7 +26,11 @@ addBtn.addEventListener('click', handleClickAddBtn);
 const utc = Date.now();
 const timeOff = new Date().getTimezoneOffset() * 60000;
 const today = new Date(utc - timeOff).toISOString().split('T')[0];
-document.querySelector('.dateInput').setAttribute('min', today);
+const dateInputs = document
+  .querySelectorAll('.dateInput')
+  .forEach((dateInput) => {
+    dateInput.setAttribute('min', today);
+  });
 
 // 시작일 설정에 change event handler 등록
 const fromDate = document.querySelector('.from');
@@ -153,7 +157,7 @@ function handleClickAddBtn() {
   const fromDate = document.querySelector('.from');
   const toDate = document.querySelector('.to');
 
-  if (!content.value || !fromDate.value || !toDate.value) return;
+  if (!content.value) return;
   newTodo.idx = nextIdx++;
   newTodo.content = content.value;
   priorities.forEach((priority) => {
@@ -162,8 +166,8 @@ function handleClickAddBtn() {
       return;
     }
   });
-  newTodo.fromDate = new Date(fromDate.value);
-  newTodo.toDate = new Date(toDate.value);
+  newTodo.fromDate = fromDate.value ? new Date(fromDate.value) : new Date();
+  newTodo.toDate = toDate.value ? new Date(toDate.value) : new Date();
   newTodo.isDone = false;
 
   pushTodo(newTodo);
@@ -183,5 +187,6 @@ function handleChangeFromDate(e) {
     let timeOff = new Date().getTimezoneOffset() * 60000;
     let today = new Date(utc - timeOff).toISOString().split('T')[0];
     document.querySelector('.to').setAttribute('min', today);
+    document.querySelector('.to').setAttribute('value', e.currentTarget.value);
   }
 }
