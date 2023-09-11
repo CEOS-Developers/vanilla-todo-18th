@@ -1,0 +1,196 @@
+@font-face {
+  font-family: 'GangwonState';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/GangwonState.woff2')
+    format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SUITE-SemiBold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-SemiBold.woff2')
+    format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SUITE-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2')
+    format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SUITE-Medium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Medium.woff2')
+    format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+body {
+  font-family: 'SUITE-Regular';
+  padding: 10px;
+  margin: 0;
+}
+
+.wrapper {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  border: 3px solid black;
+  border-radius: 10px;
+}
+.title {
+  font-family: 'GangwonState';
+}
+.body {
+  width: 100%;
+}
+.inputAndAdd {
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+.inputOuter {
+  overflow: auto;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  border: 2px solid black;
+  border-radius: 8px;
+  color: rgb(112, 112, 112);
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+
+.contentInput {
+  border: none;
+  background-color: transparent;
+  flex-grow: 2;
+}
+
+.radioOuter {
+  display: flex;
+  align-items: center;
+  border-left: 1px solid black;
+  padding: 0 10px;
+}
+.priority {
+  margin: 0 5px;
+}
+label {
+  font-size: 10px;
+}
+
+.dateOuter {
+  display: flex;
+  border-left: 1px solid black;
+  padding: 0 10px;
+}
+.dateInput {
+  width: 50px;
+  overflow: hidden;
+  border: none;
+  position: relative;
+  background-color: transparent;
+  color: rgb(112, 112, 112);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.dateInput::before {
+  content: attr(data-placeholder);
+  width: 100%;
+}
+
+.dateInput:focus::before,
+.dateInput:valid::before {
+  display: none;
+}
+
+.addBtn {
+  margin-left: 10px;
+  min-width: 20px;
+  height: 20px;
+  border: 2px solid black;
+  border-radius: 50%;
+  font-family: 'SUITE-SemiBold';
+  text-align: center;
+}
+
+.todoList {
+  margin: 10px 0 0 0;
+  padding: 10px;
+  list-style: none;
+}
+
+.todoLi {
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgb(216, 216, 216);
+  color: rgb(112, 112, 112);
+}
+
+.content {
+  flex-grow: 2;
+}
+
+.fromDate,
+.toDate {
+  margin: 0 5px;
+}
+.doneBtn {
+  margin: 0 5px 0 10px;
+  width: 20px;
+  height: 20px;
+  color: green;
+}
+
+.deleteBtn {
+  padding: 0 10px 0 5px;
+  color: rgb(202, 45, 24);
+}
+
+.high {
+  color: black;
+  font-family: 'SUITE-SemiBold';
+}
+
+.mid {
+  color: rgb(120, 120, 120);
+  font-family: 'SUITE-Medium';
+}
+
+.low {
+  color: rgb(200, 200, 200);
+  font-weight: 400;
+}
+
+.done {
+  color: rgb(236, 236, 236) !important;
+  font-weight: 400 !important;
+}
+
+@media (max-width: 500px) {
+  .radioOuter,
+  .dateOuter,
+  .fromDate,
+  .toDate,
+  .betweenDate {
+    display: none;
+  }
+}
