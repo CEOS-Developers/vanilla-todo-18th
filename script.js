@@ -62,6 +62,7 @@ function addNewTodoLi(todo) {
   newLi.appendChild(deleteBtn);
 
   newLi.id = todo.idx;
+  newLi.classList.add('todoLi');
   if (todo.priority === 3) newLi.classList.add('high');
   else if (todo.priority === 2) newLi.classList.add('mid');
   else newLi.classList.add('low');
@@ -128,11 +129,13 @@ function handleClickDeleteBtn(e) {
 // add button click event handler
 function handleClickAddBtn() {
   const newTodo = {};
-  const content = document.querySelector('.content');
+  const content = document.querySelector('.contentInput');
   const priorities = document.querySelectorAll("input[name='priority']");
   const fromDate = document.querySelector('.from');
   const toDate = document.querySelector('.to');
 
+  //   console.log(fromDate.value);
+  if (!content.value || !fromDate.value || !toDate.value) return;
   newTodo.idx = nextIdx++;
   newTodo.content = content.value;
   priorities.forEach((priority) => {

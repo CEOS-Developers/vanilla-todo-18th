@@ -1,0 +1,77 @@
+button {
+  all: unset;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.body {
+  width: 100%;
+  height: 50px;
+}
+.inputOuter {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgb(227, 227, 227);
+  border-radius: 8px;
+  color: rgb(112, 112, 112);
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.contentInput {
+  border: none;
+  background-color: transparent;
+  flex-grow: 2;
+}
+
+.radioOuter {
+  display: flex;
+  align-items: center;
+  border-left: 1px solid rgb(227, 227, 227);
+  padding: 0 10px;
+}
+.priority {
+  margin: 0 5px;
+}
+label {
+  font-size: 10px;
+}
+
+.dateOuter {
+  display: flex;
+  border-left: 1px solid rgb(227, 227, 227);
+  padding: 0 10px;
+}
+.dateInput {
+  width: 50px;
+  overflow: hidden;
+  border: none;
+  position: relative;
+  background-color: transparent;
+  color: rgb(112, 112, 112);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.dateInput::before {
+  content: attr(data-placeholder);
+  width: 100%;
+}
+
+.dateInput:focus::before,
+.dateInput:valid::before {
+  display: none;
+}
+
+.addBtn {
+  padding: 0 10px;
+}

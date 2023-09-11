@@ -11,23 +11,64 @@
     <h1 class="title">나의 할 일</h1>
     <div class="body">
       <div class="inputOuter">
-        <input type="text" class="content" />
-        <div class="">
+        <input
+          type="text"
+          class="contentInput"
+          placeholder="할 일을 입력해주세요."
+        />
+
+        <div class="radioOuter">
           <input
             type="radio"
             name="priority"
             value="3"
             class="priority"
             checked
-          />높음
-          <input type="radio" name="priority" value="2" class="priority" />보통
-          <input type="radio" name="priority" value="1" class="priority" />낮음
+            id="high"
+          />
+
+          <label for="high">높음</label>
+
+          <input
+            type="radio"
+            name="priority"
+            value="2"
+            class="priority"
+            id="mid"
+          />
+
+          <label for="mid">보통</label>
+
+          <input
+            type="radio"
+            name="priority"
+            value="1"
+            class="priority"
+            id="low"
+          />
+
+          <label for="low">낮음</label>
         </div>
 
-        <input type="datetime-local" class="from" />
-        <input type="datetime-local" class="to" />
+        <div class="dateOuter">
+          <input
+            type="datetime-local"
+            class="dateInput from"
+            data-placeholder="시작"
+            required
+            aria-required="true"
+          />
+          <input
+            type="datetime-local"
+            class="dateInput to"
+            data-placeholder="종료"
+            required
+            aria-required="true"
+          />
+        </div>
         <button class="addBtn">+</button>
       </div>
+
       <ul class="todoList"></ul>
     </div>
   </body>
