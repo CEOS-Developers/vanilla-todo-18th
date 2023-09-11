@@ -29,6 +29,7 @@
   font-weight: 500;
   font-style: normal;
 }
+
 button {
   all: unset;
 }
@@ -180,4 +181,14 @@ label {
   color: rgb(236, 236, 236) !important;
   font-weight: 400 !important;
   /* background-color: whitesmoke; */
+}
+
+@media (max-width: 500px) {
+  .radioOuter,
+  .dateOuter,
+  .fromDate,
+  .toDate,
+  .betweenDate {
+    display: none;
+  }
 }

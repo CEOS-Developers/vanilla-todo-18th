@@ -62,6 +62,7 @@ function addNewTodoLi(todo) {
   fromDateDiv.innerHTML = convertDate(todo.fromDate);
   fromDateDiv.className = 'fromDate';
   betweenDiv.innerHTML = '-';
+  betweenDiv.className = 'betweenDate';
   toDateDiv.innerHTML = convertDate(todo.toDate);
   toDateDiv.className = 'toDate';
   doneBtn.innerHTML = todo.isDone ? '↪' : '✓';
