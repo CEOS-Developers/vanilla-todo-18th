@@ -18,8 +18,19 @@ for (const todo of TODOS) {
   addNewTodoLi(todo);
 }
 
+// 추가 버튼 click event handler 등록
 const addBtn = document.querySelector('.addBtn');
 addBtn.addEventListener('click', handleClickAddBtn);
+
+// 오늘 이전의 date은 선택하지 못하도록 제한
+const utc = Date.now();
+const timeOff = new Date().getTimezoneOffset() * 60000;
+const today = new Date(utc - timeOff).toISOString().split('T')[0];
+document.querySelector('.dateInput').setAttribute('min', today);
+
+// 시작일 설정에 change event handler 등록
+const fromDate = document.querySelector('.from');
+fromDate.addEventListener('change', handleChangeFromDate);
 
 // ############################## core functions ##############################
 // view update
@@ -91,6 +102,7 @@ function pushTodo(todo) {
   TODOS.splice(i, 0, todo);
 }
 
+// Date를 적절하게 display 하도록 convert
 function convertDate(date) {
   return `${date.getFullYear()}.${date.getMonth() + 1}.${date.getDate()}`;
 }
@@ -98,8 +110,6 @@ function convertDate(date) {
 // ############################## click handlers ##############################
 // done button click event handler
 function handleClickDoneBtn(e) {
-  //   console.log(e.currentTarget.innerHTML);
-  //   e.target.innerHTML = '↩';
   const idx = e.currentTarget.parentNode.id;
   const clickedLi = document.getElementById(idx);
   if (clickedLi.classList.contains('done')) clickedLi.classList.remove('done');
@@ -143,7 +153,6 @@ function handleClickAddBtn() {
   const fromDate = document.querySelector('.from');
   const toDate = document.querySelector('.to');
 
-  //   console.log(fromDate.value);
   if (!content.value || !fromDate.value || !toDate.value) return;
   newTodo.idx = nextIdx++;
   newTodo.content = content.value;
@@ -165,4 +174,14 @@ function handleClickAddBtn() {
   priorities[0].checked = true;
   fromDate.value = null;
   toDate.value = null;
+}
+
+// 종료일이 시작일보다 빠를 수 없도록한 change event handler
+function handleChangeFromDate(e) {
+  if (e.currentTarget.value) {
+    let utc = new Date(e.currentTarget.value).getTime();
+    let timeOff = new Date().getTimezoneOffset() * 60000;
+    let today = new Date(utc - timeOff).toISOString().split('T')[0];
+    document.querySelector('.to').setAttribute('min', today);
+  }
 }
