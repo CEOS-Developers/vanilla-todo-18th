@@ -32,6 +32,7 @@
 
 button {
   all: unset;
+  cursor: pointer;
 }
 
 body {
