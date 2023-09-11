@@ -37,19 +37,21 @@ function addNewTodoLi(todo) {
   const newLi = document.createElement('li');
   const contentDiv = document.createElement('div');
   const fromDateDiv = document.createElement('div');
+  const betweenDiv = document.createElement('div');
   const toDateDiv = document.createElement('div');
   const doneBtn = document.createElement('button');
   const deleteBtn = document.createElement('button');
-
+  new Date().geth;
   contentDiv.innerHTML = todo.content;
   contentDiv.className = 'content';
-  fromDateDiv.innerHTML = todo.fromDate;
+  fromDateDiv.innerHTML = convertDate(todo.fromDate);
   fromDateDiv.className = 'fromDate';
-  toDateDiv.innerHTML = todo.toDate;
+  betweenDiv.innerHTML = '-';
+  toDateDiv.innerHTML = convertDate(todo.toDate);
   toDateDiv.className = 'toDate';
-  doneBtn.innerHTML = 'done';
+  doneBtn.innerHTML = todo.isDone ? '↪' : '✓';
   doneBtn.className = 'doneBtn';
-  deleteBtn.innerHTML = 'delete';
+  deleteBtn.innerHTML = '-';
   deleteBtn.className = 'deleteBtn';
 
   doneBtn.addEventListener('click', handleClickDoneBtn);
@@ -57,6 +59,7 @@ function addNewTodoLi(todo) {
 
   newLi.appendChild(contentDiv);
   newLi.appendChild(fromDateDiv);
+  newLi.appendChild(betweenDiv);
   newLi.appendChild(toDateDiv);
   newLi.appendChild(doneBtn);
   newLi.appendChild(deleteBtn);
@@ -88,9 +91,15 @@ function pushTodo(todo) {
   TODOS.splice(i, 0, todo);
 }
 
+function convertDate(date) {
+  return `${date.getFullYear()}.${date.getMonth() + 1}.${date.getDate()}`;
+}
+
 // ############################## click handlers ##############################
 // done button click event handler
 function handleClickDoneBtn(e) {
+  //   console.log(e.currentTarget.innerHTML);
+  //   e.target.innerHTML = '↩';
   const idx = e.currentTarget.parentNode.id;
   const clickedLi = document.getElementById(idx);
   if (clickedLi.classList.contains('done')) clickedLi.classList.remove('done');
