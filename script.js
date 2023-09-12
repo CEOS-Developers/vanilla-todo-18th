@@ -48,7 +48,7 @@ const addTodo = () => {
 const renderTodo = () => {
   todoList = JSON.parse(localStorage.getItem('todos'));
   todoContent.innerHTML = ''; //html 초기화
-  todoList.forEach((todo) => {
+  todoList.forEach((todo, index) => {
     //요소 생성 후 띄우기
     const li = document.createElement('li');
 
@@ -61,7 +61,7 @@ const renderTodo = () => {
 
     const deleteBtn = document.createElement('button');
     deleteBtn.innerText = 'X';
-    //deleteBtn.addEventListener('click', () => removeTodo(index));
+    deleteBtn.addEventListener('click', () => removeTodo(index));
 
     // li 요소에 체크박스, 제목, 삭제 버튼을 추가한다
     li.appendChild(checkbox);
@@ -71,6 +71,17 @@ const renderTodo = () => {
     // todoContent (ul 요소)에 li 요소를 추가한다
     todoContent.appendChild(li);
   });
+};
+
+//todoList삭제함수
+const removeTodo = (index) => {
+  //filter메소드로 삭제한 배열로 업데이트
+  todoList = todoList.filter((data) => {
+    return data !== todoList[index];
+  });
+  //localStorage다시 저장
+  localStorage.setItem('todos', JSON.stringify(todoList));
+  renderTodo(); //todoList 리렌더링
 };
 
 clock();
