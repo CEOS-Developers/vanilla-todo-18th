@@ -2,10 +2,11 @@
 const dateInfo = document.getElementById('date');
 const input = document.querySelector('input');
 const form = document.querySelector('form');
+const todoContent = document.querySelector('.todoContent');
 
-//할일 목록용 배열
-const todoList = [];
-const doneList = [];
+//할일 목록용 배열 초기화
+let todoList = [];
+let doneList = [];
 
 //날짜 띄우는 함수
 const clock = () => {
@@ -39,6 +40,38 @@ const addTodo = () => {
   todoList.push(input.value); //배열추가
   localStorage.setItem('todos', JSON.stringify(todoList)); //로컬스토리지 배열 업데이트
   input.value = ''; //입력필드 초기화
+
+  renderTodo(); //투두리스트 리렌더링
+};
+
+//로컬스토리지 내 todo 목록 띄우기
+const renderTodo = () => {
+  todoList = JSON.parse(localStorage.getItem('todos'));
+  todoContent.innerHTML = ''; //html 초기화
+  todoList.forEach((todo) => {
+    //요소 생성 후 띄우기
+    const li = document.createElement('li');
+
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    //checkbox.addEventListener("change", () => toggleCompleted(index));
+
+    const span = document.createElement('span');
+    span.innerText = todo;
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.innerText = 'X';
+    //deleteBtn.addEventListener('click', () => removeTodo(index));
+
+    // li 요소에 체크박스, 제목, 삭제 버튼을 추가한다
+    li.appendChild(checkbox);
+    li.appendChild(span);
+    li.appendChild(deleteBtn);
+
+    // todoContent (ul 요소)에 li 요소를 추가한다
+    todoContent.appendChild(li);
+  });
 };
 
 clock();
+renderTodo();
