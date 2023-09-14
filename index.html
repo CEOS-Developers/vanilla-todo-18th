@@ -3,12 +3,55 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla Todo</title>
+    <title>Vanilla Todo.</title>
+    <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
-
   <body>
-    <div class="container"></div>
+    <header>
+      <div class="input-section">
+        <div class="icon">
+          <img src="./images/galaxy-icon.svg" alt="아이콘" />
+        </div>
+        <input
+          type="text"
+          placeholder="당신의 할 일을 별을 먹어치우는 블랙홀처럼 모두 해치우세요."
+        />
+        <button>Enter</button>
+      </div>
+      <div class="quote-section">Carl Seagan - " 사멸은 법칙이다. "</div>
+    </header>
+    <main>
+      <div class="todos-solves">
+        <div class="todo-section">
+          <h1>✔ 지금 당장 해결하세요.</h1>
+          <p class="caption">총 2개의 할 일이 있어요.</p>
+          <ul class="todo-list">
+            <li>백준 실버5 2394, 2395번 풀기</li>
+            <li>개인 velog에 Recoil의 사용법에 대해서 포스팅 해보기</li>
+          </ul>
+        </div>
+        <div class="solved-section">
+          <h1>✔ 최근 해결한 내역</h1>
+          <p class="caption">최신 10개까지의 기록이 남아있어요.</p>
+          <ul class="solved-list">
+            <li>
+              <img src="./images/delete.png" alt="삭제하기" />
+              <img src="./images/restore.png  " alt="삭제하기" />
+              <p>백준 실버5 2394, 2395번 풀기</p>
+            </li>
+            <li>
+              <img src="./images/delete.png" alt="삭제하기" />
+              <img src="./images/restore.png  " alt="삭제하기" />
+              <p>백준 실버5 2394, 2395번 풀ㅋㅋㅋㅋ기</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="blackhole-section">
+        <img src="./images/blackhole2.gif" alt="블랙홀 이미지" />
+      </div>
+    </main>
+    <footer>Copyrightⓒ2023 ChungInYoung All rights reserved.</footer>
   </body>
-  <script src="script.js"></script>
 </html>

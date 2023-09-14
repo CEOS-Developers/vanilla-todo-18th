@@ -1,0 +1,157 @@
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+body {
+  background-color: black;
+  font-size: 15px;
+  font-family: "Pretendard-Regular";
+  position: relative;
+}
+
+header {
+  margin-top: 80px;
+  width: 100%;
+}
+header .input-section {
+  width: 45%;
+  height: 45px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
+  box-shadow: 0px 0px 100px 50px rgba(255, 255, 255, 0.25);
+}
+header .input-section .icon {
+  padding: 0 20px 0px 30px;
+  display: flex;
+  align-items: center;
+}
+
+header .input-section input {
+  width: 73%;
+  border: none;
+  outline: none;
+}
+header .input-section button {
+  display: flex;
+  width: 67px;
+  height: 27px;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(212, 212, 212, 1);
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+header .quote-section {
+  width: 100%;
+  margin-top: 26px;
+  text-align: center;
+  color: white;
+}
+
+.blackhole-section {
+  text-align: center;
+}
+
+main {
+  margin-top: 19px;
+  color: white;
+}
+
+main .todos-solves {
+  display: flex;
+  width: 90%;
+  margin: 0px auto;
+}
+main .todos-solves .todo-section {
+  margin-right: auto;
+}
+
+.todos-solves .todo-section h1 {
+  font-size: 24px;
+}
+.todos-solves .todo-section p.caption {
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.5);
+}
+.todos-solves .todo-section ul {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+.todos-solves .todo-section li {
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(18, 18, 18, 0) 0%,
+    #202020 100%
+  );
+  box-shadow: 0px 0px 60px 20px rgba(13, 12, 11, 0.25);
+  box-shadow: 0px 0px 20px 0px white;
+  border-radius: 20px;
+  padding: 13px 30px 13px;
+}
+.todos-solves .solved-section h1 {
+  text-align: right;
+  font-size: 24px;
+}
+.todos-solves .solved-section p.caption {
+  text-align: right;
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.5);
+}
+.todos-solves .solved-section ul {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.todos-solves .solved-section li {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  height: 45px;
+  border-radius: 20px;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(18, 18, 18, 0) 0%,
+    #202020 100%
+  );
+  margin-bottom: 20px;
+}
+.todos-solves .solved-section li p {
+  align-self: center;
+  padding-left: 20px;
+  padding-right: 30px;
+}
+.todos-solves .solved-section li img {
+  width: 20px;
+}
+.todos-solves .solved-section li img:first-child {
+  padding-right: 10px;
+}
+main {
+  position: relative;
+}
+
+main .blackhole-section {
+  position: absolute;
+  left: 36%;
+  width: 100px;
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  color: #675f5f;
+  position: fixed;
+  bottom: 0;
+}
