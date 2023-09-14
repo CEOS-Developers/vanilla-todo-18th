@@ -1,5 +1,5 @@
 let nowToDo = [];
-let historyToDo = [];
+let completeToDo = [];
 
 const todoGenerator = document.querySelector(".todo");
 const todoList = document.querySelector(".todo-list");
@@ -28,7 +28,7 @@ const setText2 = (text) => {
   li.appendChild(deleteImg);
   li.appendChild(resetImg);
   li.appendChild(textEl);
-  historyToDo.push(text);
+  completeToDo.push(text);
   completeList.appendChild(li);
 };
 
@@ -73,16 +73,39 @@ const listClickHandler = (event) => {
   nowToDo.length = 0;
   nowToDo.push(...filterArr);
   localStorage.setItem("nowToDo", JSON.stringify(nowToDo));
-  historyToDo.push(event.target.innerHTML);
-  localStorage.setItem("completeToDo", JSON.stringify(historyToDo));
+  completeToDo.push(event.target.innerHTML);
+  localStorage.setItem("completeToDo", JSON.stringify(completeToDo));
   event.target.remove();
   setNumber();
   setText2(event.target.innerHTML);
 };
 
+const compleListClickHandler = (event) => {
+  if (
+    event.target.tagName === "IMG" &&
+    event.target.src.includes("delete.png")
+  ) {
+    // "delete.png" 이미지를 클릭한 경우
+    const deletedTask =
+      event.target.nextElementSibling.nextElementSibling.innerHTML; // 해당 항목의 텍스트 가져오기
+    const filterArr = completeToDo.filter((data) => data !== deletedTask);
+    completeToDo = filterArr;
+    console.log(completeToDo);
+    localStorage.setItem("completeToDo", JSON.stringify(completeToDo));
+    event.target.parentElement.remove(); // 해당 항목 제거
+  }
+
+  else if(
+    event.target.tagName =="IMG" &&
+    event.target.src.includes("restore.png")
+  ){
+  
+  }
+
+};
 todoGenerator.addEventListener("submit", submitHandler);
 todoList.addEventListener("click", listClickHandler);
-
+completeList.addEventListener("click", compleListClickHandler);
 (() => {
   loadToDo("nowToDo");
   loadCompleteTodo("completeToDo");
