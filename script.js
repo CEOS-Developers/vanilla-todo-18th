@@ -1,4 +1,5 @@
 const clock = document.querySelector("h2#clock");
+const addButton = document.getElementById("add-button");
 
 function getClock() {
   const date = new Date();
@@ -9,6 +10,22 @@ function getClock() {
 }
 getClock();
 setInterval(getClock, 1000);
+
+function handleAddButtonClick() {
+  const newTodo = toDoInput.value;
+  if (newTodo !== "") {
+    toDoInput.value = "";
+    const newTodoObj = {
+      text: newTodo,
+      id: Date.now(),
+    };
+    toDos.push(newTodoObj);
+    paintToDo(newTodoObj);
+    saveToDos();
+  }
+}
+
+addButton.addEventListener("click", handleAddButtonClick);
 
 function saveToDos() {
   localStorage.setItem("todos", JSON.stringify(toDos));
