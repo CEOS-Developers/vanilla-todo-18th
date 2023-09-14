@@ -1,7 +1,9 @@
-let nowToDo = []; // 지금 당장 해결
-let historyToDo = []; // 해결한 내역
+let nowToDo = [];
+let historyToDo = [];
+
 const todoGenerator = document.querySelector(".todo");
 const todoList = document.querySelector(".todo-list");
+const completeList = document.querySelector(".solved-list");
 const submitButton = document.querySelector("button");
 
 const resetInputText = () => {
@@ -15,27 +17,74 @@ const setText = (text) => {
   nowToDo.push(text);
   todoList.appendChild(li);
 };
-const loadToDo = () => {
-  const loadToDos = localStorage.getItem("nowTodo");
+const setText2 = (text) => {
+  const li = document.createElement("li");
+  const textEl = document.createElement("p");
+  textEl.innerHTML = text;
+  const deleteImg = document.createElement("img");
+  deleteImg.src = "./images/delete.png";
+  const resetImg = document.createElement("img");
+  resetImg.src = "./images/restore.png";
+  li.appendChild(deleteImg);
+  li.appendChild(resetImg);
+  li.appendChild(textEl);
+  historyToDo.push(text);
+  completeList.appendChild(li);
+};
+
+const loadToDo = (item) => {
+  const loadToDos = localStorage.getItem(item);
   const parsedToDos = JSON.parse(loadToDos);
   parsedToDos.forEach((toDo) => {
     setText(toDo);
-    console.log(toDo);
   });
 };
-const saveToDo = () => {
-  localStorage.setItem("nowTodo", JSON.stringify(nowToDo));
+
+const loadCompleteTodo = (item) => {
+  const loadCompleteToDos = localStorage.getItem(item);
+  const parsedCompleteToDos = JSON.parse(loadCompleteToDos);
+  parsedCompleteToDos.forEach((completeToDo) => {
+    setText2(completeToDo);
+  });
+};
+
+const setNumber = () => {
+  const toDoNum = document.querySelector(".todo-number");
+  toDoNum.innerHTML = nowToDo.length;
 };
 const submitHandler = (event) => {
   event.preventDefault();
   const todoText = event.target.children[0].value;
+  if (todoText.length < 3) {
+    alert("3글자 이상 입력하세요.");
+    return;
+  } else if (todoText.length > 25) {
+    alert("25글자 이하로 요약해서 입력해주세요.");
+    return;
+  }
   setText(todoText);
-  saveToDo();
+  localStorage.setItem("nowToDo", JSON.stringify(nowToDo));
+  setNumber();
   resetInputText();
 };
 
+const listClickHandler = (event) => {
+  const filterArr = nowToDo.filter((data) => data !== event.target.innerHTML);
+  nowToDo.length = 0;
+  nowToDo.push(...filterArr);
+  localStorage.setItem("nowToDo", JSON.stringify(nowToDo));
+  historyToDo.push(event.target.innerHTML);
+  localStorage.setItem("completeToDo", JSON.stringify(historyToDo));
+  event.target.remove();
+  setNumber();
+  setText2(event.target.innerHTML);
+};
+
 todoGenerator.addEventListener("submit", submitHandler);
+todoList.addEventListener("click", listClickHandler);
 
 (() => {
-  loadToDo();
+  loadToDo("nowToDo");
+  loadCompleteTodo("completeToDo");
+  setNumber();
 })();

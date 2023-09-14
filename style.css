@@ -96,10 +96,15 @@ main .todos-solves .todo-section {
     rgba(18, 18, 18, 0) 0%,
     #202020 100%
   );
+
   box-shadow: 0px 0px 60px 20px rgba(13, 12, 11, 0.25);
   box-shadow: 0px 0px 20px 0px white;
   border-radius: 20px;
   padding: 13px 30px 13px;
+  cursor: pointer;
+}
+.todos-solves .todo-section li:hover {
+  color: yellow;
 }
 .todos-solves .solved-section h1 {
   text-align: right;
@@ -129,6 +134,7 @@ main .todos-solves .todo-section {
   );
   margin-bottom: 20px;
 }
+
 .todos-solves .solved-section li p {
   align-self: center;
   padding-left: 20px;
