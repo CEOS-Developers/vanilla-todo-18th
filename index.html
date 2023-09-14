@@ -9,23 +9,24 @@
 
   <body>
     <div class="container">
-      <h1 id="clock">00:00:00</h2>
+      <h1 id="clock">00:00:00</h1>
       <div class="title">To Do List</div>
-      <div class="todo-input">
-        <form id="todo-form">
-        <input type="text" placeholder="type here..." required />
-        <button type="button" id="add-button">✚</button>
-        </form>
+      <div class="content">
+        <div class="todo-input">
+          <form id="todo-form">
+            <input type="text" placeholder="type here..." required />
+            <button type="button" id="add-button">✚</button>
+          </form>
+        </div>
+        <div class="todo-lists">
+          <span class="subtitle">To Do</span>
+          <ul id="todo-list"></ul>
+        </div>
+        <div class="done-lists">
+          <span class="subtitle">Done</span>
+          <ul id="done-list"></ul>
+        </div>
       </div>
-      <div class="todo-lists">
-        <span>To Do</span>
-        <ul id="todo-list"></ul>
-      </div>
-      <div class="done-lists">
-        <span>Done</Span>
-        <ul id="done-list"></ul>
-      </div>
-      
     </div>
   </body>
   <script src="script.js"></script>
