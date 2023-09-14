@@ -6,6 +6,7 @@
     <title>Vanilla Todo.</title>
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
+    <script defer src="./script.js"></script>
   </head>
   <body>
     <header>
@@ -13,10 +14,12 @@
         <div class="icon">
           <img src="./images/galaxy-icon.svg" alt="아이콘" />
         </div>
-        <input
-          type="text"
-          placeholder="당신의 할 일을 별을 먹어치우는 블랙홀처럼 모두 해치우세요."
-        />
+        <form class="todo">
+          <input
+            type="text"
+            placeholder="당신의 할 일을 별을 먹어치우는 블랙홀처럼 모두 해치우세요."
+          />
+        </form>
         <button>Enter</button>
       </div>
       <div class="quote-section">Carl Seagan - " 사멸은 법칙이다. "</div>

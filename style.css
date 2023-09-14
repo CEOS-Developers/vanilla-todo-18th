@@ -30,9 +30,12 @@ header .input-section .icon {
   display: flex;
   align-items: center;
 }
-
-header .input-section input {
+header .input-section form {
   width: 73%;
+  align-self: center;
+}
+header .input-section form input {
+  width: 100%;
   border: none;
   outline: none;
 }
@@ -143,7 +146,8 @@ main {
 
 main .blackhole-section {
   position: absolute;
-  left: 36%;
+  top: 200px;
+  left: calc(35vw);
   width: 100px;
 }
 
