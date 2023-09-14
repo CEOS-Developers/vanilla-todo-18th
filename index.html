@@ -8,14 +8,23 @@
   </head>
 
   <body>
-    <div class="container"></div>
-    <h1>To Do List</h1>
-    <h2 id="clock">00:00:00</h2>
-    <form id="todo-form">
-      <input type="text" placeholder="type here..." required />
-      <button type="button" id="add-button">✚</button>
-    </form>
-    <ul id="todo-list"></ul>
+    <div class="container">
+      <div class="title">To Do List</div>
+      <h1 id="clock">00:00:00</h2>
+      <div class="todo-input">
+        <form id="todo-form">
+        <input type="text" placeholder="type here..." required />
+        <button type="button" id="add-button">✚</button>
+        </form>
+      </div>
+      <div class="todo-lists">
+        <span>To Do</span>
+      </div>
+      <div class="done-lists">
+        <span>Done</Span>
+      </div>
+      <ul id="todo-list"></ul>
+    </div>
   </body>
   <script src="script.js"></script>
 </html>

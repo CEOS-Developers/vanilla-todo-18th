@@ -1,4 +1,4 @@
-const clock = document.querySelector("h2#clock");
+const clock = document.querySelector("h1#clock");
 const addButton = document.getElementById("add-button");
 
 function getClock() {
@@ -43,7 +43,7 @@ function paintToDo(newTodo) {
   const span = document.createElement("span");
   span.innerText = newTodo.text;
   const button = document.createElement("button");
-  button.innerText = "❌";
+  button.innerText = "🗑";
   button.addEventListener("click", deleteToDo);
   li.appendChild(span);
   li.appendChild(button);
