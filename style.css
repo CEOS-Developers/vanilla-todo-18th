@@ -1,3 +1,23 @@
+@font-face {
+  font-family: "양진체";
+  src: url("https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
+  width: 100%;
+  height: 100%;
   background-color: beige;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "양진체";
+}
+
+#clock {
+  font-size: 80px;
 }
