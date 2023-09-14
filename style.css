@@ -7,7 +7,9 @@
 }
 
 body {
-  width: 100%;
+  background-image: url("file:///Users/jiwon/Desktop/Macos_Monterey_2021_Apple_WWDC_5K_Poster_1366x768.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100%;
   background-color: beige;
   font-family: "양진체";
@@ -18,7 +20,7 @@ body {
 }
 
 .container {
-  background-color: rgba(128, 128, 128, 0.5);
+  background-color: rgba(255, 255, 255, 0.2);
   padding: 10rem;
   padding-top: 2rem;
   display: flex;
@@ -68,7 +70,7 @@ body {
 
 .todo-lists,
 .done-lists {
-  background-color: rgba(128, 128, 128, 0.2);
+  background-color: rgba(255, 255, 255, 0.5);
   padding: 2rem;
   margin-bottom: 2.5rem;
   border-radius: 20px;
