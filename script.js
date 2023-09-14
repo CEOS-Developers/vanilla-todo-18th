@@ -4,6 +4,8 @@ const input = document.querySelector('input');
 const form = document.querySelector('form');
 const todoContent = document.querySelector('.todoContent');
 const doneContent = document.querySelector('.doneContent');
+const todoNum = document.getElementById('todoNum');
+const doneNum = document.getElementById('doneNum');
 
 //할일 목록용 배열 초기화
 let todoList = [];
@@ -48,6 +50,7 @@ const inputTodo = () => {
 //로컬스토리지 내 todo 목록 띄우기
 const renderTodo = () => {
   todoList = JSON.parse(localStorage.getItem('todos'));
+  todoNum.innerText = todoList.length;
   todoContent.innerHTML = ''; //html 초기화
   todoList.forEach((todo, index) => {
     //요소 생성 후 띄우기
@@ -80,6 +83,7 @@ const renderTodo = () => {
 //로컬스토리지 내 done 목록 띄우기
 const renderDone = () => {
   doneList = JSON.parse(localStorage.getItem('dones'));
+  doneNum.innerText = doneList.length;
   doneContent.innerHTML = ''; //html 초기화
   doneList.forEach((done, index) => {
     //요소 생성 후 띄우기
