@@ -1,116 +1,121 @@
-let nowToDo = [];
-let completeToDo = [];
+let currentTasks = [];
+let completedTasks = [];
 
-const todoGenerator = document.querySelector(".todo");
-const todoList = document.querySelector(".todo-list");
-const completeList = document.querySelector(".solved-list");
+const taskForm = document.querySelector(".todo");
+const taskList = document.querySelector(".todo-list");
+const completedList = document.querySelector(".solved-list");
 const submitButton = document.querySelector("button");
 
 const resetInputText = () => {
-  const todo_input = document.querySelector(".todo > input");
-  console.log("d");
-  todo_input.value = "";
+  const taskInput = document.querySelector(".todo > input");
+  taskInput.value = "";
 };
-const setText = (text) => {
-  const li = document.createElement("li");
-  li.innerHTML = text;
-  nowToDo.push(text);
-  todoList.appendChild(li);
+
+const addTaskToList = (text) => {
+  const listItem = document.createElement("li");
+  listItem.innerHTML = text;
+  currentTasks.push(text);
+  taskList.appendChild(listItem);
 };
-const setText2 = (text) => {
-  const li = document.createElement("li");
-  const textEl = document.createElement("p");
-  textEl.innerHTML = text;
+
+const addCompletedTaskToList = (text) => {
+  const listItem = document.createElement("li");
+  const textElement = document.createElement("p");
+  textElement.innerHTML = text;
   const deleteImg = document.createElement("img");
   deleteImg.src = "./images/delete.png";
-  const resetImg = document.createElement("img");
-  resetImg.src = "./images/restore.png";
-  li.appendChild(deleteImg);
-  li.appendChild(resetImg);
-  li.appendChild(textEl);
-  completeToDo.push(text);
-  completeList.appendChild(li);
+  const restoreImg = document.createElement("img");
+  restoreImg.src = "./images/restore.png";
+  listItem.appendChild(deleteImg);
+  listItem.appendChild(restoreImg);
+  listItem.appendChild(textElement);
+  completedTasks.push(text);
+  completedList.appendChild(listItem);
 };
 
-const loadToDo = (item) => {
-  const loadToDos = localStorage.getItem(item);
-  const parsedToDos = JSON.parse(loadToDos);
-  parsedToDos.forEach((toDo) => {
-    setText(toDo);
+const loadTasks = (item) => {
+  const storedTasks = localStorage.getItem(item);
+  const parsedTasks = JSON.parse(storedTasks);
+  parsedTasks.forEach((task) => {
+    addTaskToList(task);
   });
 };
 
-const loadCompleteTodo = (item) => {
-  const loadCompleteToDos = localStorage.getItem(item);
-  const parsedCompleteToDos = JSON.parse(loadCompleteToDos);
-  parsedCompleteToDos.forEach((completeToDo) => {
-    setText2(completeToDo);
+const loadCompletedTasks = (item) => {
+  const storedCompletedTasks = localStorage.getItem(item);
+  const parsedCompletedTasks = JSON.parse(storedCompletedTasks);
+  parsedCompletedTasks.forEach((completedTask) => {
+    addCompletedTaskToList(completedTask);
   });
 };
 
-const setNumber = () => {
-  const toDoNum = document.querySelector(".todo-number");
-  toDoNum.innerHTML = nowToDo.length;
+const updateTaskCount = () => {
+  const taskCount = document.querySelector(".todo-number");
+  taskCount.innerHTML = currentTasks.length;
 };
+
 const submitHandler = (event) => {
   event.preventDefault();
-  const todoText = event.target.children[0].value;
-  if (todoText.length < 3) {
+  const taskText = event.target.children[0].value;
+  if (taskText.length < 3) {
     alert("3글자 이상 입력하세요.");
     return;
-  } else if (todoText.length > 25) {
+  } else if (taskText.length > 25) {
     alert("25글자 이하로 요약해서 입력해주세요.");
     return;
   }
-  setText(todoText);
-  localStorage.setItem("nowToDo", JSON.stringify(nowToDo));
-  setNumber();
+  addTaskToList(taskText);
+  localStorage.setItem("currentTasks", JSON.stringify(currentTasks));
+  updateTaskCount();
   resetInputText();
 };
 
-const listClickHandler = (event) => {
-  const filterArr = nowToDo.filter((data) => data !== event.target.innerHTML);
-  nowToDo.length = 0;
-  nowToDo.push(...filterArr);
-  localStorage.setItem("nowToDo", JSON.stringify(nowToDo));
-  completeToDo.push(event.target.innerHTML);
-  localStorage.setItem("completeToDo", JSON.stringify(completeToDo));
+const taskClickHandler = (event) => {
+  const filteredTasks = currentTasks.filter((task) => task !== event.target.innerHTML);
+  currentTasks.length = 0;
+  currentTasks.push(...filteredTasks);
+  localStorage.setItem("currentTasks", JSON.stringify(currentTasks));
+  completedTasks.push(event.target.innerHTML);
+  localStorage.setItem("completedTasks", JSON.stringify(completedTasks));
   event.target.remove();
-  setNumber();
-  setText2(event.target.innerHTML);
+  updateTaskCount();
+  addCompletedTaskToList(event.target.innerHTML);
 };
 
-const compleListClickHandler = (event) => {
+const completedTaskClickHandler = (event) => {
   if (
     event.target.tagName === "IMG" &&
     event.target.src.includes("delete.png")
   ) {
     const deletedTask =
       event.target.nextElementSibling.nextElementSibling.innerHTML;
-    const filterArr = completeToDo.filter((data) => data !== deletedTask);
-    completeToDo = filterArr;
-    console.log(completeToDo);
-    localStorage.setItem("completeToDo", JSON.stringify(completeToDo));
+    const filteredCompletedTasks = completedTasks.filter((task) => task !== deletedTask);
+    completedTasks = filteredCompletedTasks;
+    console.log(completedTasks);
+    localStorage.setItem("completedTasks", JSON.stringify(completedTasks));
     event.target.parentElement.remove();
   } else if (
     event.target.tagName == "IMG" &&
     event.target.src.includes("restore.png")
   ) {
     const restoredTask = event.target.nextElementSibling.innerHTML;
-    const filterArr = completeToDo.filter((data) => data !== restoredTask);
-    completeToDo = filterArr;
-    localStorage.setItem("completeToDo", JSON.stringify(completeToDo));
-    setText(restoredTask);
-    localStorage.setItem("nowToDo", JSON.stringify(nowToDo));
+    const filteredCompletedTasks = completedTasks.filter((task) => task !== restoredTask);
+    completedTasks = filteredCompletedTasks;
+    localStorage.setItem("completedTasks", JSON.stringify(completedTasks));
+    addTaskToList(restoredTask);
+    currentTasks.push(restoredTask);
+    localStorage.setItem("currentTasks", JSON.stringify(currentTasks));
     event.target.parentElement.remove();
-    setNumber();
+    updateTaskCount();
   }
 };
-todoGenerator.addEventListener("submit", submitHandler);
-todoList.addEventListener("click", listClickHandler);
-completeList.addEventListener("click", compleListClickHandler);
+
+taskForm.addEventListener("submit", submitHandler);
+taskList.addEventListener("click", taskClickHandler);
+completedList.addEventListener("click", completedTaskClickHandler);
+
 (() => {
-  loadToDo("nowToDo");
-  loadCompleteTodo("completeToDo");
-  setNumber();
+  loadTasks("currentTasks");
+  loadCompletedTasks("completedTasks");
+  updateTaskCount();
 })();

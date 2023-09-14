@@ -102,9 +102,11 @@ main .todos-solves .todo-section {
   border-radius: 20px;
   padding: 13px 30px 13px;
   cursor: pointer;
+  transition: 1s;
 }
 .todos-solves .todo-section li:hover {
-  color: yellow;
+  background: yellow;
+  color: black;
 }
 .todos-solves .solved-section h1 {
   text-align: right;
