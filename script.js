@@ -85,23 +85,26 @@ const compleListClickHandler = (event) => {
     event.target.tagName === "IMG" &&
     event.target.src.includes("delete.png")
   ) {
-    // "delete.png" 이미지를 클릭한 경우
     const deletedTask =
-      event.target.nextElementSibling.nextElementSibling.innerHTML; // 해당 항목의 텍스트 가져오기
+      event.target.nextElementSibling.nextElementSibling.innerHTML;
     const filterArr = completeToDo.filter((data) => data !== deletedTask);
     completeToDo = filterArr;
     console.log(completeToDo);
     localStorage.setItem("completeToDo", JSON.stringify(completeToDo));
-    event.target.parentElement.remove(); // 해당 항목 제거
-  }
-
-  else if(
-    event.target.tagName =="IMG" &&
+    event.target.parentElement.remove();
+  } else if (
+    event.target.tagName == "IMG" &&
     event.target.src.includes("restore.png")
-  ){
-  
+  ) {
+    const restoredTask = event.target.nextElementSibling.innerHTML;
+    const filterArr = completeToDo.filter((data) => data !== restoredTask);
+    completeToDo = filterArr;
+    localStorage.setItem("completeToDo", JSON.stringify(completeToDo));
+    setText(restoredTask);
+    localStorage.setItem("nowToDo", JSON.stringify(nowToDo));
+    event.target.parentElement.remove();
+    setNumber();
   }
-
 };
 todoGenerator.addEventListener("submit", submitHandler);
 todoList.addEventListener("click", listClickHandler);
