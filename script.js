@@ -9,6 +9,27 @@ let doneArr = [];
 const TODODATA = "todoData";
 const DONEDATA = "doneData";
 
+function todayDate() {
+  var todayDate = document.getElementById("date");
+  const dayWeek = [
+    "일요일",
+    "월요일",
+    "화요일",
+    "수요일",
+    "목요일",
+    "금요일",
+    "토요일",
+  ];
+  let today = new Date();
+
+  let year = today.getFullYear();
+  let month = today.getMonth() + 1;
+  let date = today.getDate();
+  let day = dayWeek[today.getDay()];
+
+  todayDate.textContent = year + "년 " + month + "월 " + date + "일 " + day;
+}
+
 //LocalStorage에 저장하는 함수
 function saveDATA() {
   localStorage.setItem(TODODATA, JSON.stringify(todoArr));
@@ -97,6 +118,7 @@ function newTodo() {
 
 function init() {
   addBtn.addEventListener("click", newTodo);
+  todayDate();
 }
 
 init();
