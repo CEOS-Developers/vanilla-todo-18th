@@ -7,7 +7,6 @@ const doneContent = document.querySelector('.doneContent');
 const todoNum = document.getElementById('todoNum');
 const doneNum = document.getElementById('doneNum');
 
-//할일 목록용 배열 초기화
 let todoList = [];
 let doneList = [];
 
@@ -24,8 +23,6 @@ const clock = () => {
   dateInfo.innerText = `${year}.${month + 1}.${date} ${
     dayList[day]
   } ${hours}시`;
-
-  //낮or밤에 따라 배경 전환
 };
 
 //submit이벤트 핸들러
@@ -41,12 +38,13 @@ const inputTodo = () => {
   if (input.value.trim() === '') {
     return;
   }
+  //배열추가
+  todoList.push(input.value);
+  localStorage.setItem('todos', JSON.stringify(todoList));
+  input.value = '';
 
-  todoList.push(input.value); //배열추가
-  localStorage.setItem('todos', JSON.stringify(todoList)); //로컬스토리지 배열 업데이트
-  input.value = ''; //입력필드 초기화
-
-  renderTodo(); //투두리스트 리렌더링
+  //리렌더링
+  renderTodo();
 };
 
 //로컬스토리지 내 todo 목록 띄우기
@@ -77,7 +75,7 @@ const renderTodo = () => {
     li.appendChild(span);
     li.appendChild(deleteBtn);
 
-    // todoContent (ul 요소)에 li 요소를 추가
+    // todoContent에 li 요소를 추가
     todoContent.appendChild(li);
   });
 };
@@ -110,7 +108,7 @@ const renderDone = () => {
     li.appendChild(span);
     li.appendChild(deleteBtn);
 
-    // todoContent (ul 요소)에 li 요소를 추가한다
+    // doneContent에 li 요소를 추가한다
     doneContent.appendChild(li);
   });
 };
@@ -123,7 +121,8 @@ const removeTodo = (index) => {
   });
   //localStorage다시 저장
   localStorage.setItem('todos', JSON.stringify(todoList));
-  renderTodo(); //todoList 리렌더링
+
+  renderTodo(); //리렌더링
 };
 
 //doneList삭제함수
