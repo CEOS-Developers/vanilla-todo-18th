@@ -6,9 +6,28 @@
     <title>Vanilla Todo</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-
   <body>
-    <div class="container"></div>
+    <div class="container">
+      <div class="header">
+        <div class="logo">TODO-list</div>
+        <div class="detail">
+          <div>투두리스트를 작성하고 오늘 하루를 기록해요</div>
+          <div id="clock-js">00:00</div>
+        </div>
+      </div>
+      <div class="todoInput">
+        <input id="addTodo" type="text" placeholder=" Add TODO">
+        <button id="plusButton">+</button>
+      </div>
+      <div class="todoList">
+        <div class="todoCards">
+        <!--여기에 todo 추가-->
+        </div>
+        <div class="doneCards">
+        <!--여기에 done 추가-->
+        </div>
+      </div>
+    </div>
   </body>
   <script src="script.js"></script>
 </html>
