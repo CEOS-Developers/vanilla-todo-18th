@@ -36,10 +36,10 @@ const addCompletedTaskToList = (text) => {
     completedTasks.push(text);
     completedList.appendChild(listItem);
     const filteredTasks = currentTasks.filter((task) => task !== text);
-    currentTasks = filteredTasks; 
-    localStorage.setItem("currentTasks", JSON.stringify(currentTasks)); 
+    currentTasks = filteredTasks;
+    localStorage.setItem("currentTasks", JSON.stringify(currentTasks));
     localStorage.setItem("completedTasks", JSON.stringify(completedTasks));
-     if (completedList.children.length > maxCompletedTasksToShow) {
+    if (completedList.children.length > maxCompletedTasksToShow) {
       completedList.lastChild.remove();
     }
   }
@@ -69,6 +69,22 @@ const updateTaskCount = () => {
 const submitHandler = (event) => {
   event.preventDefault();
   const taskText = event.target.children[0].value;
+  if (taskText.length < 3) {
+    alert("3글자 이상 입력하세요.");
+    return;
+  } else if (taskText.length > 25) {
+    alert("25글자 이하로 요약해서 입력해주세요.");
+    return;
+  }
+  addTaskToList(taskText);
+  localStorage.setItem("currentTasks", JSON.stringify(currentTasks));
+  updateTaskCount();
+  resetInputText();
+};
+
+const clickHandler = (event) => {
+  event.preventDefault();
+  const taskText = event.target.previousElementSibling.children[0].value;
   if (taskText.length < 3) {
     alert("3글자 이상 입력하세요.");
     return;
@@ -128,6 +144,7 @@ const completedTaskClickHandler = (event) => {
 };
 
 taskForm.addEventListener("submit", submitHandler);
+submitButton.addEventListener("click", clickHandler);
 taskList.addEventListener("click", taskClickHandler);
 completedList.addEventListener("click", completedTaskClickHandler);
 
