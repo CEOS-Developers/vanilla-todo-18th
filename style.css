@@ -1,0 +1,99 @@
+@font-face {
+  font-family: "양진체";
+  src: url("https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  background-image: url("https://www.10wallpaper.com/wallpaper/1366x768/2106/Macos_Monterey_2021_Apple_WWDC_5K_Poster_1366x768.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  font-family: "양진체";
+  margin: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 10rem;
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  margin: 0 auto;
+}
+#clock {
+  font-size: 60px;
+  display: flex;
+  justify-content: center;
+}
+.title {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+}
+.todo-input {
+  padding: 0.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.todo-input input[type="text"] {
+  width: 80%;
+  flex: 1;
+  padding: 0.8rem;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+}
+.todo-input button {
+  width: 11%;
+  background-color: black;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.8rem;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+.todo-input button:hover {
+  background-color: gray;
+}
+.todo-lists,
+.done-lists {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+  border-radius: 20px;
+}
+#todo-list,
+#done-list {
+  list-style-type: none;
+  padding-left: 1rem;
+}
+#todo-list li,
+#done-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px; /* 원하는 간격으로 조절하세요 */
+}
+#todo-list button,
+#done-list button {
+  opacity: 0;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  padding: 0.3rem 0.5rem;
+  cursor: pointer;
+}
+#todo-list li:hover button,
+#done-list li:hover button {
+  opacity: 1;
+}
+
+.subtitle {
+  font-size: 19px;
+}
