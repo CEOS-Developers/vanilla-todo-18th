@@ -5,15 +5,13 @@
   font-weight: normal;
   font-style: normal;
 }
-
 body {
   background-image: url("file:///Users/jiwon/Desktop/Macos_Monterey_2021_Apple_WWDC_5K_Poster_1366x768.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
-  background-color: beige;
   font-family: "양진체";
-  margin: 8rem;
+  margin: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,10 +23,13 @@ body {
   padding-top: 2rem;
   display: flex;
   flex-direction: column;
+  width: 450px;
+  margin: 0 auto;
 }
 
 #clock {
   font-size: 60px;
+
   display: flex;
   justify-content: center;
 }
@@ -43,11 +44,11 @@ body {
   padding: 0.5rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  display: flex;
-  align-items: center;
 }
 
 .todo-input input[type="text"] {
+  width: 80%;
+  flex: 1;
   padding: 0.8rem;
   border: none;
   outline: none;
@@ -55,6 +56,7 @@ body {
 }
 
 .todo-input button {
+  width: 11%;
   background-color: black;
   color: #ffffff;
   border: none;
@@ -74,4 +76,33 @@ body {
   padding: 2rem;
   margin-bottom: 2.5rem;
   border-radius: 20px;
+}
+
+#todo-list,
+#done-list {
+  list-style-type: none;
+  padding-left: 1rem;
+}
+
+#todo-list li,
+#done-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px; /* 원하는 간격으로 조절하세요 */
+}
+
+#todo-list button,
+#done-list button {
+  opacity: 0;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  padding: 0.3rem 0.5rem;
+  cursor: pointer;
+}
+
+#todo-list li:hover button,
+#done-list li:hover button {
+  opacity: 1;
 }
