@@ -21,7 +21,9 @@ const clock = () => {
   var hours = current.getHours(); // 시간
   const dayList = ['일', '월', '화', '수', '목', '금', '토'];
 
-  dateInfo.innerText = `${year}.${month}.${date} ${dayList[day]} ${hours}시`;
+  dateInfo.innerText = `${year}.${month + 1}.${date} ${
+    dayList[day]
+  } ${hours}시`;
 
   //낮or밤에 따라 배경 전환
 };
@@ -70,12 +72,12 @@ const renderTodo = () => {
     deleteBtn.innerText = 'X';
     deleteBtn.addEventListener('click', () => removeTodo(index));
 
-    // li 요소에 체크박스, 제목, 삭제 버튼을 추가한다
+    // li 요소에 체크박스, 제목, 삭제 버튼을 추가
     li.appendChild(checkbox);
     li.appendChild(span);
     li.appendChild(deleteBtn);
 
-    // todoContent (ul 요소)에 li 요소를 추가한다
+    // todoContent (ul 요소)에 li 요소를 추가
     todoContent.appendChild(li);
   });
 };
@@ -148,3 +150,7 @@ const addTodo = (elem) => {
   localStorage.setItem('todos', JSON.stringify(todoList)); //로컬스토리지 배열 업데이트
   renderTodo(); //doneList 리렌더링
 };
+
+clock();
+renderTodo();
+renderDone();
