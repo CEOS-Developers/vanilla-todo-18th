@@ -10,20 +10,19 @@ const DONETODOS_KEY = "donetodos";
 const savedDoneToDos = localStorage.getItem(DONETODOS_KEY);
 let toDos = [];
 let doneToDos = [];
-
 addButton.addEventListener("click", handleAddButtonClick);
 toDoForm.addEventListener("submit", handleToDoSubmit);
-
 function getClock() {
   const date = new Date();
   const hours = String(date.getHours()).padStart(2, "0");
   const minutes = String(date.getMinutes()).padStart(2, "0");
   const seconds = String(date.getSeconds()).padStart(2, "0");
+  const amPm = hours >= 12 ? "PM" : "AM";
+  clock.innerText = `${hours}:${minutes}:${seconds} ${amPm}`;
   clock.innerText = `${hours}:${minutes}:${seconds}`;
 }
 getClock();
 setInterval(getClock, 1000);
-
 function handleAddButtonClick() {
   const newTodo = toDoInput.value;
   if (newTodo !== "") {
@@ -37,17 +36,14 @@ function handleAddButtonClick() {
     saveToDos();
   }
 }
-
 function saveToDos() {
   localStorage.setItem("todos", JSON.stringify(toDos));
 }
-
 if (savedToDos !== null) {
   const parsedToDos = JSON.parse(savedToDos);
   toDos = parsedToDos;
   parsedToDos.forEach(paintToDo);
 }
-
 function deleteToDo(event) {
   event.stopPropagation();
   const li = event.target.parentElement;
@@ -55,7 +51,6 @@ function deleteToDo(event) {
   toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
   saveToDos();
 }
-
 function paintToDo(newTodo) {
   const li = document.createElement("li");
   li.id = newTodo.id;
@@ -69,7 +64,6 @@ function paintToDo(newTodo) {
   li.appendChild(button);
   toDoList.appendChild(li);
 }
-
 function handleToDoSubmit(event) {
   event.preventDefault();
   const newTodo = toDoInput.value;
@@ -82,17 +76,14 @@ function handleToDoSubmit(event) {
   paintToDo(newTodoObj);
   saveToDos();
 }
-
 function moveToDone(event) {
   const li = event.target.parentElement;
   const text = li.querySelector("span").innerText;
   const id = parseInt(li.id);
-
   const doneTodoObj = {
     text,
     id,
   };
-
   li.remove();
   toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
   saveToDos();
@@ -100,7 +91,6 @@ function moveToDone(event) {
   paintDoneItem(doneTodoObj);
   saveDoneItems(doneTodoObj);
 }
-
 function paintDoneItem(doneTodo) {
   const li = document.createElement("li");
   li.id = doneTodo.id;
@@ -109,22 +99,18 @@ function paintDoneItem(doneTodo) {
   const button = document.createElement("button");
   button.innerText = "🗑";
   button.addEventListener("click", deleteDoneItem);
-
   li.appendChild(span);
   li.appendChild(button);
   doneList.appendChild(li);
 }
-
 function saveDoneItems() {
   localStorage.setItem("donetodos", JSON.stringify(doneToDos));
 }
-
 if (savedDoneToDos !== null) {
   const parsedDoneToDos = JSON.parse(savedDoneToDos);
   doneToDos = parsedDoneToDos;
   parsedDoneToDos.forEach(paintDoneItem);
 }
-
 function deleteDoneItem(event) {
   const li = event.target.parentElement;
   li.remove();
