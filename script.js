@@ -49,7 +49,7 @@ const inputTodo = () => {
 
 //로컬스토리지 내 todo 목록 띄우기
 const renderTodo = () => {
-  todoList = JSON.parse(localStorage.getItem('todos'));
+  todoList = JSON.parse(localStorage.getItem('todos')) || [];
   todoNum.innerText = todoList.length;
   todoContent.innerHTML = ''; //html 초기화
   todoList.forEach((todo, index) => {
@@ -82,7 +82,7 @@ const renderTodo = () => {
 
 //로컬스토리지 내 done 목록 띄우기
 const renderDone = () => {
-  doneList = JSON.parse(localStorage.getItem('dones'));
+  doneList = JSON.parse(localStorage.getItem('dones')) || [];
   doneNum.innerText = doneList.length;
   doneContent.innerHTML = ''; //html 초기화
   doneList.forEach((done, index) => {
