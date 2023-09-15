@@ -106,3 +106,7 @@ body {
 #done-list li:hover button {
   opacity: 1;
 }
+
+.subtitle {
+  font-size: 19px;
+}
