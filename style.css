@@ -1,0 +1,72 @@
+body {
+  background-color: #faf0e6;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputBox {
+  width: 30vw;
+  height: 3vw;
+
+  background-color: #f7f8f8;
+  border: none;
+  border-radius: 10px;
+}
+
+.todoList {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.todoContent {
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1vw;
+}
+
+.todoContent input {
+  width: 2rem;
+}
+
+.doneContent {
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1vw;
+}
+
+.doneContent input {
+  width: 2rem;
+}
+
+li {
+  width: 20vw;
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 2vw;
+}
+
+button {
+  font-size: 2vw;
+}
+
+.title {
+  font-size: 2vw;
+}
+.date {
+  font-size: 3vw;
+}

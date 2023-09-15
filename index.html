@@ -8,7 +8,28 @@
   </head>
 
   <body>
-    <div class="container"></div>
+    <div class="container">
+      <h2 class="date" id="date">TODAY</h2>
+      <form class="inputWrapper">
+        <input class="inputBox" placeholder=" 할일을 입력해보세요" />
+      </form>
+      <div class="contentWrapper">
+        <div class="todoList">
+          <h2 class="title">
+            ToDo _
+            <span id="todoNum">0</span>
+          </h2>
+          <ul class="todoContent"></ul>
+        </div>
+        <div class="doneList">
+          <h2 class="title">
+            Done _
+            <span id="doneNum">0</span>
+          </h2>
+          <ul class="doneContent"></ul>
+        </div>
+      </div>
+    </div>
   </body>
   <script src="script.js"></script>
 </html>
