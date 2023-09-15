@@ -1,5 +1,6 @@
 let currentTasks = [];
 let completedTasks = [];
+const maxCompletedTasksToShow = 5;
 
 const taskForm = document.querySelector(".todo");
 const taskList = document.querySelector(".todo-list");
@@ -35,9 +36,12 @@ const addCompletedTaskToList = (text) => {
     completedTasks.push(text);
     completedList.appendChild(listItem);
     const filteredTasks = currentTasks.filter((task) => task !== text);
-    currentTasks = filteredTasks; // 현재 할 일 목록 업데이트
-    localStorage.setItem("currentTasks", JSON.stringify(currentTasks)); // 업데이트된 목록을 저장
-    localStorage.setItem("completedTasks", JSON.stringify(completedTasks)); // 완료된 목록 저장
+    currentTasks = filteredTasks; 
+    localStorage.setItem("currentTasks", JSON.stringify(currentTasks)); 
+    localStorage.setItem("completedTasks", JSON.stringify(completedTasks));
+     if (completedList.children.length > maxCompletedTasksToShow) {
+      completedList.lastChild.remove();
+    }
   }
 };
 
