@@ -1,58 +1,65 @@
 # 1주차 미션: Vanilla-Todo
 
-# 서론
+## 필수 요건 설명
 
-안녕하세요 🙌🏻 18기 프론트엔드 운영진 **배성준**입니다.
+- [배포 링크](vanilla-todo-18th-modsiw.vercel.app)
+- CSS의 Flexbox의 경우, ~~grid를 딱... 한 번 쓰긴 했지만...~~ 그 외에는 모두 flex 사용했습니다!
+- html, css, js로 코드 작성하였습니다.
+- 제 나쁜 습관 중 하나가 commit을 뜸하게 날린다는 것인데요..!
 
-이번 미션은 개발 환경 구축과 스터디 진행 방식에 익숙해지실 수 있도록 간단한 **to-do list** 만들기를 진행합니다. 무작정 첫 스터디부터 React를 다루는 것보다는 왜 React가 필요한지, React가 없으면 무엇이 불편한지 느껴 보고 본격적인 스터디에 들어가는 것이 React를 이해하는 데 더 많은 도움이 될 것이라 생각합니다.
+  초반에는 노력했으나 후반부 타임어택 이슈로 듬성한 commit을 남기게 되어 조금은 아쉽습니다🥲
 
-비교적 가벼운 미션인 만큼 코드를 짜는 데 있어 여러분의 **창의성**을 충분히 발휘해 보시기 바랍니다. 작동하기만 하면 되는 것보다 같은 코드를 짜는 여러가지 방식과 패턴에 대해 고민해 보시고, 본인이 생각한 가장 창의적인 방법으로 코드를 작성해 주세요. 여러분이 미션을 수행하는 과정에서 겪는 고민과 생각의 깊이만큼 스터디에서 더 많은 것을 얻어가실 수 있을 것입니다.
+## 기능 설명
+(볼륨이 작아서 뺄까 고민했지만 그래도 적어봅니다...)
 
-막히는 부분이 있더라도 우선은 스스로 공부하고 찾아보는 방법을 권고드리지만, 운영진의 도움이 필요하시다면 얼마든지 슬랙 Q&A 채널이나 프론트엔드 카톡방에 질문을 남겨 주세요!
+|시작 화면|입력창|실행 화면|
+|:---:|:---:|:---:|
+|<img src="https://github.com/mod-siw/vanilla-todo-18th/assets/127821462/db550e73-6459-4ae3-977c-db0d748ba80f" width="300"/>|<img src="https://github.com/mod-siw/vanilla-todo-18th/assets/127821462/eb716d9e-eb1e-4ada-8113-79331134414e" width="300"/>|<img src="https://github.com/mod-siw/vanilla-todo-18th/assets/127821462/076325d2-0c06-4d95-9a7b-99b3a65334e3" width="300"/>|
 
-# 미션
 
-## 미션 목표
+1. 처음 화면에 있는 회색 바는 입력창이 아니라 progress bar입니다!
+2. 왼쪽의 연필 모양 아이콘을 클릭하시면 입력창이 나타나요.
+3. list item hover하면 색이 바뀌는 동시에 삭제 버튼도 나타납니다.
+4. donelist로 이동하면 progress bar에도 반영이 됩니다! (입력창에서 다시 돌아가주세요.)
+5. progress bar 오른편에는 끝낸 항목 / 전체 항목을 숫자로 나타냈습니다.
+6. 중간중간 소소하게 트랜지션을 넣어봤으니 한 번 봐주시면 감사하겠습니다😊
 
-- VSCode, Prettier를 이용하여 개발 환경을 관리합니다.
-- HTML/CSS의 기초를 이해합니다.
-- JavaScript를 이용한 DOM 조작을 이해합니다.
-- Vanilla Js를 이용한 어플리케이션 상태 관리 방법을 이해합니다.
+## 아쉬운 점 + 더 구현하고 싶은 기능 
 
-## 기한
+#### 아쉬운점
+* **코드를 더 효율적으로 써야할 것 같습니다.** <br />
+  기능 구현이 최우선이라는 마인드를 버리고 싶었지만... 해당 마인드가 여전히 남아있는 코드들입니다ㅜㅜ <br />
+  앞으로는 처음 짤 때부터 어떤 방식이 효율적일까 좀 더 고민하고서 써내려가고 싶습니다.  <br />
+  todo, done 파트를 나눠 일일이 함수를 만들었는데, 이를 하나로 묶은 경우를 전 기수 코드에서 보고 많이 반성했습니다..🥺 <br />
+  css 같은 경우도 background img 설정은 한 줄로 묶을 수 있는 게 많았는데 놓쳐서 아쉽습니다. <br />
+  
+* **애매한 반응형... ( 글씨 크기!!)** <br />
+  최대한 px 단위로 지정하지 않으려 노력했지만... 그리고 이런저런 다양한 꼼수들을 써봤지만 반응형은 쉽지 않네요. <br />
+  특히 글자 크기도 %나 다른 단위를 사용했으면 좋았겠다는 생각이 많이 듭니다. <br />
+  보신다면 150% 추천, 적어도 100% 이상으로 봐주시면 감사하겠습니다..ㅎㅎ
 
-- 2023년 9월 15일 금요일
+* **사용자 편의성?** <br />
+  삭제 버튼을 원래는 hover 시에 뜨는 게 아니라 떠있는 상태로 디자인해서인지 text와 꽤 떨어져있는데요. <br />
+  정렬되어 있는 깔끔함을 선택할까 편의성을 고려할까 하다가 일단은 원래대로 해놓았습니다. <br />
+  삭제 버튼 크기를 줄여서 깔끔하게 뜨되 편하게 누를 수 있는 위치에 놓았어도 좋았을 것 같습니다. <br />
 
-## Key Questions
+#### 더 구현해보고 싶은 기능
+1. **progress 상태에 따라 전체 style color 변경** <br />
+   원래 처음 하고 싶었던 것은 progress 에 따라 border, list item 등 전체적인 style color가 그라데이션으로 바뀌는 것을 해보고 싶었어요. 그래서 너무 React만 썼었는지... progress 비율에 따라 색을 지정하는 함수를 만들고, 이를 props ~~(여기부터 vanilla로는 글렀다고 생각하긴 했다...)~~ 로 전달하면 가능하지 않을까! 싶었습니다. 하지만 가뜩이나 시간도 부족해서 이를 구현할 시간이 택도 없었기에..^^ 정해진 색으로 우선 제출해보았습니다.  
 
-- DOM은 무엇인가요?
-- HTML (tag) Element를 JavaScript로 생성하는 방법은 어떤 것이 있고, 어떤 방법이 가장 적합할까요?
-- Semantic tag에는 어떤 것이 있으며, 이를 사용하는 이유는 무엇일까요?
-- Flexbox Layout은 무엇이며, 어떻게 사용하나요?
-- JavaScript가 다른 언어들에 비해 주목할 만한 점에는 어떤 것들이 있나요?
-- 코드에서 주석을 다는 바람직한 방법은 무엇일까요?
 
-## 필수 요건
+2. **날짜 부분 달력 형태로 나타내기**
+   localstorage 값에 날짜에 따른 todolist를 넣어보면 어떨까 싶기도 했는데요. 그러면 날짜별로 list가 달라져서 이용하기가 불편할 것 같다는 생각이 들어... 달력 형태로 하되 드래그 앤 드롭 기능으로 item들 옮길 수 있으면 좋지 않을까 생각만 해봤습니다...ㅎㅎ 그래도 디자인적인 면에서 달력으로도 나타낼 수 있으면 좋을 것 같습니다!
 
-- [결과 화면](https://vanilla-todo-17th-qras.vercel.app/)의 기능을 그대로 구현합니다.
-- 결과 링크의 화면 디자인 그대로 구현해도 좋고, 자신만의 디자인을 적용해도 좋습니다.
-- CSS의 Flexbox를 이용하여 레이아웃을 구성합니다.
-- JQuery, React, Bootstrap 등 외부 라이브러리를 사용하지 않습니다.
-- 함수와 변수의 이름은 lowerCamelCase로 짓습니다.
-- 코딩의 단위를 기능별로 나누어 Commit 메세지를 작성합니다.
 
-## 선택 요건
 
-- 외부 폰트([눈누 상업용 무료폰트](https://noonnu.cc/))로 입맛에 맞게 꾸밉니다.
-- 브라우저의 `localStorage` 혹은 `sessionStorage`를 이용하여 다음 번 접속 시에 기존의 투두 데이터를 불러옵니다.
-- 이 외에도 추가하고 싶은 기능이 있다면 마음껏 추가하셔도 됩니다.
 
 # 링크 및 참고자료
 
-- [HTML/CSS 기초](https://heropy.blog/2019/04/24/html-css-starter/)
-- [HTML 태그](https://heropy.blog/2019/05/26/html-elements/)
-- [FlexBox 가이드](https://heropy.blog/2018/11/24/css-flexible-box/)
-- [JS를 통한 DOM 조작](https://velog.io/@bining/javascript-DOM-%EC%A1%B0%EC%9E%91%ED%95%98%EA%B8%B0#append)
-- [localStorage, sessionStorage](https://www.daleseo.com/js-web-storage/)
-- [git 사용법](https://wayhome25.github.io/git/2017/07/08/git-first-pull-request-story/)
-- [좋은 코드리뷰 방법](https://tech.kakao.com/2022/03/17/2022-newkrew-onboarding-codereview/)
+- [로컬에서 만든 branch 안 보일 때](https://pythontoomuchinformation.tistory.com/457) 
+- [Git add, commit, push 취소하기](https://hidaehyunlee.gitbook.io/fork-my-brain/git/git-add-commit-push)
+- [배경 이미지 관련 CSS](https://heinafantasy.com/168) 
+
+  이건 자료는 찾아봤지만 시간과 디자인 감각 부족으로 실패한..^^ 달력 관련 자료입니다!
+- [자바 스크립트를 이용한 달력 만들기](https://velog.io/@sohyeonbak_oly/%EC%9E%90%EB%B0%94-%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%8B%AC%EB%A0%A5%EB%A7%8C%EB%93%A4%EA%B8%B0-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%9D%B8%EB%8D%B0-%EC%83%81%EB%8B%B4%EC%8B%A0%EC%B2%AD%EC%9D%84-%EA%B3%81%EB%93%A4%EC%9D%B8)
+

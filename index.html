@@ -3,12 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="todo.css" />
     <title>Vanilla Todo</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="./img/favicon.ico" />
   </head>
 
   <body>
-    <div class="container"></div>
+    <main>
+      <section class="top-content">
+        <h2 class="todo-title">TODOLIST</h2>
+        <span class="date"></span>
+      </section>
+      <section class="todo-input-container">
+        <button class="popup-button"></button>
+        <article class="progress-container">
+          <span class="progress"></span>
+          <div class="progress-div">
+            <div class="progress-bar"></div>
+          </div>
+        </article>
+        <form class="todo-form">
+          <button class="todo-input-button" type="submit"></button>
+          <input class="todo-input" placeholder="" />
+        </form>
+      </section>
+      <section class="todo-container">
+        <article class="list-contents">
+          <h3 class="list-title">TODO</h3>
+          <ul class="todo-list"></ul>
+        </article>
+        <article class="list-contents">
+          <h3 class="list-title">DONE</h3>
+          <ul class="done-list"></ul>
+        </article>
+      </section>
+    </main>
   </body>
-  <script src="script.js"></script>
+  <script src="todoList.js"></script>
 </html>
