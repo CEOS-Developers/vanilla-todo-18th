@@ -7,14 +7,46 @@ body{
     align-items: center;
     justify-content: center;
 }
-
-
 .container{
     background-color: white;
     width: 300px;
-    height: 600px;
-  
+    height: 650px;
+    border-radius: 10px;
 }
+.todoContainer,
+.doneContainer {
+  flex: 1; 
+  padding: 10px;
+  background-color: #f0f0f0;
+  margin: 10px;
+  height: 200px; 
+}
+.header{
+    height: 15px;
+    width:100%;
+    display:flex;
+}
+.round{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin:5px;
+}
+.round:hover{
+    cursor: pointer;
+}
+.Red {
+    background-color: #F5655B;
+}
+  
+.round.Yellow {
+    background-color: #F6BD3B;
+}
+
+.Green {
+    background-color: #43C645;
+}
+
 .todo_input{
     width:100%;
     background-color: whitesmoke;
@@ -34,4 +66,17 @@ body{
     padding-left: 10px;
     background-color: rgb(233, 233, 233);
 
+}
+.deleteBtn{
+    position:fixed;
+    right:280px;
+}
+.doneBtn{
+    position:fixed;
+    right:310px;
+}
+.todoItem{
+    display:flex;
+    justify-content: space-between;
+    width: 100%;
 }
