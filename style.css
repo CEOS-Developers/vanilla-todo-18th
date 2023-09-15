@@ -20,6 +20,7 @@ body{
   background-color: #f0f0f0;
   margin: 10px;
   height: 200px; 
+  border-radius: 10px;
 }
 .header{
     height: 15px;
@@ -38,8 +39,7 @@ body{
 .Red {
     background-color: #F5655B;
 }
-  
-.round.Yellow {
+.Yellow {
     background-color: #F6BD3B;
 }
 
@@ -47,9 +47,8 @@ body{
     background-color: #43C645;
 }
 
-.todo_input{
+.todoInput  {
     width:100%;
-    background-color: whitesmoke;
     height: 60px;
     display: flex;
     align-items: center;
