@@ -12,25 +12,33 @@ const resetInputText = () => {
 };
 
 const addTaskToList = (text) => {
-  const listItem = document.createElement("li");
-  listItem.innerHTML = text;
-  currentTasks.push(text);
-  taskList.appendChild(listItem);
+  if (!currentTasks.includes(text)) {
+    const listItem = document.createElement("li");
+    listItem.innerHTML = text;
+    currentTasks.push(text);
+    taskList.appendChild(listItem);
+  }
 };
 
 const addCompletedTaskToList = (text) => {
-  const listItem = document.createElement("li");
-  const textElement = document.createElement("p");
-  textElement.innerHTML = text;
-  const deleteImg = document.createElement("img");
-  deleteImg.src = "./images/delete.png";
-  const restoreImg = document.createElement("img");
-  restoreImg.src = "./images/restore.png";
-  listItem.appendChild(deleteImg);
-  listItem.appendChild(restoreImg);
-  listItem.appendChild(textElement);
-  completedTasks.push(text);
-  completedList.appendChild(listItem);
+  if (!completedTasks.includes(text)) {
+    const listItem = document.createElement("li");
+    const textElement = document.createElement("p");
+    textElement.innerHTML = text;
+    const deleteImg = document.createElement("img");
+    deleteImg.src = "./images/delete.png";
+    const restoreImg = document.createElement("img");
+    restoreImg.src = "./images/restore.png";
+    listItem.appendChild(deleteImg);
+    listItem.appendChild(restoreImg);
+    listItem.appendChild(textElement);
+    completedTasks.push(text);
+    completedList.appendChild(listItem);
+    const filteredTasks = currentTasks.filter((task) => task !== text);
+    currentTasks = filteredTasks; // 현재 할 일 목록 업데이트
+    localStorage.setItem("currentTasks", JSON.stringify(currentTasks)); // 업데이트된 목록을 저장
+    localStorage.setItem("completedTasks", JSON.stringify(completedTasks)); // 완료된 목록 저장
+  }
 };
 
 const loadTasks = (item) => {
@@ -71,7 +79,10 @@ const submitHandler = (event) => {
 };
 
 const taskClickHandler = (event) => {
-  const filteredTasks = currentTasks.filter((task) => task !== event.target.innerHTML);
+  const filteredTasks = currentTasks.filter(
+    (task) => task !== event.target.innerHTML
+  );
+  addCompletedTaskToList(event.target.innerHTML);
   currentTasks.length = 0;
   currentTasks.push(...filteredTasks);
   localStorage.setItem("currentTasks", JSON.stringify(currentTasks));
@@ -79,7 +90,6 @@ const taskClickHandler = (event) => {
   localStorage.setItem("completedTasks", JSON.stringify(completedTasks));
   event.target.remove();
   updateTaskCount();
-  addCompletedTaskToList(event.target.innerHTML);
 };
 
 const completedTaskClickHandler = (event) => {
@@ -89,7 +99,9 @@ const completedTaskClickHandler = (event) => {
   ) {
     const deletedTask =
       event.target.nextElementSibling.nextElementSibling.innerHTML;
-    const filteredCompletedTasks = completedTasks.filter((task) => task !== deletedTask);
+    const filteredCompletedTasks = completedTasks.filter(
+      (task) => task !== deletedTask
+    );
     completedTasks = filteredCompletedTasks;
     console.log(completedTasks);
     localStorage.setItem("completedTasks", JSON.stringify(completedTasks));
@@ -99,11 +111,12 @@ const completedTaskClickHandler = (event) => {
     event.target.src.includes("restore.png")
   ) {
     const restoredTask = event.target.nextElementSibling.innerHTML;
-    const filteredCompletedTasks = completedTasks.filter((task) => task !== restoredTask);
+    const filteredCompletedTasks = completedTasks.filter(
+      (task) => task !== restoredTask
+    );
     completedTasks = filteredCompletedTasks;
     localStorage.setItem("completedTasks", JSON.stringify(completedTasks));
     addTaskToList(restoredTask);
-    currentTasks.push(restoredTask);
     localStorage.setItem("currentTasks", JSON.stringify(currentTasks));
     event.target.parentElement.remove();
     updateTaskCount();
