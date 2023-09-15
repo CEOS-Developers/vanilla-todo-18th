@@ -95,6 +95,12 @@ function todoToDone() {
 }
 
 function newTodo() {
+  //input null 예외처리
+  if (inputTodo.value === "") {
+    alert("Please Enter Todo.");
+    return;
+  }
+
   var newDiv = document.createElement("div");
   var newText = document.createTextNode(inputTodo.value); // input 태그에 쓴 text 값
   newDiv.appendChild(newText);
