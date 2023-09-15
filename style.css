@@ -73,6 +73,7 @@ h3{
     display:flex;
     position: relative; 
     width: 100%; 
+    padding:2px;
    
 }
 .doneBtn,
