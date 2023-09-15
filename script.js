@@ -2,6 +2,15 @@ const inputTodo = document.querySelector("#inputTodo");
 const todoItems = document.querySelector("#todoList");
 const doneList = document.querySelector("#doneList");
 const addBtn = document.querySelector(".addBtn");
+const lenTodo = document.getElementById("todoCount");
+const lenDone = document.getElementById("doneCount");
+let todoArr = [];
+let doneArr = [];
+//Item 개수 저장하는 함수
+function setLength() {
+  lenTodo.innerText = todoArr.length;
+  lenDone.innerText = doneArr.length;
+}
 
 //버튼 생성하는 함수
 function createBtn(className, text) {
@@ -31,6 +40,7 @@ function deleteItem() {
         if (todoArr.includes(del))
           deleteData(todoArr, this.parentNode.firstChild.textContent);
         else deleteData(doneArr, this.parentNode.firstChild.textContent);
+        setLength();
       }
     });
   }
@@ -46,6 +56,7 @@ function todoToDone() {
         doneList.insertBefore(this.parentNode, doneList.childNodes[0]);
         deleteData(todoArr, this.parentNode.firstChild.textContent);
         doneArr.push(this.parentNode.firstChild.textContent);
+        setLength();
       }
     });
   }
@@ -69,6 +80,7 @@ function newTodo() {
 
   //doneBtn 누르면 todo -> done으로
   todoToDone();
+  setLength();
 }
 
 function init() {
