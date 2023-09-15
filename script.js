@@ -6,6 +6,15 @@ const lenTodo = document.getElementById("todoCount");
 const lenDone = document.getElementById("doneCount");
 let todoArr = [];
 let doneArr = [];
+const TODODATA = "todoData";
+const DONEDATA = "doneData";
+
+//LocalStorage에 저장하는 함수
+function saveDATA() {
+  localStorage.setItem(TODODATA, JSON.stringify(todoArr));
+  localStorage.setItem(DONEDATA, JSON.stringify(doneArr));
+}
+
 //Item 개수 저장하는 함수
 function setLength() {
   lenTodo.innerText = todoArr.length;
@@ -41,6 +50,7 @@ function deleteItem() {
           deleteData(todoArr, this.parentNode.firstChild.textContent);
         else deleteData(doneArr, this.parentNode.firstChild.textContent);
         setLength();
+        saveDATA();
       }
     });
   }
@@ -57,6 +67,7 @@ function todoToDone() {
         deleteData(todoArr, this.parentNode.firstChild.textContent);
         doneArr.push(this.parentNode.firstChild.textContent);
         setLength();
+        saveDATA();
       }
     });
   }
@@ -81,6 +92,7 @@ function newTodo() {
   //doneBtn 누르면 todo -> done으로
   todoToDone();
   setLength();
+  saveDATA();
 }
 
 function init() {
