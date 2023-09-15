@@ -1,0 +1,93 @@
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+h3{
+    text-align: center;
+}
+.container{
+    background-color: white;
+    width: 300px;
+    height: 700px;
+    border-radius: 10px;
+}
+.todoContainer,
+.doneContainer {
+  flex: 1; 
+  padding: 10px;
+  background-color: #f0f0f0;
+  margin: 10px;
+  height: 200px; 
+  border-radius: 10px;
+}
+.header{
+    height: 15px;
+    width:100%;
+    display:flex;
+}
+.round{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin:5px;
+}
+
+.Red {
+    background-color: #F5655B;
+}
+.Yellow {
+    background-color: #F6BD3B;
+}
+
+.Green {
+    background-color: #43C645;
+}
+
+.todoInput  {
+    width:100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+
+}
+#inputTodo{
+    width:80%;
+    height: 40px;
+    margin:10px;
+    font-size: 15px;
+    border: 0;
+    border-radius: 15px;
+    outline: none;
+    padding-left: 10px;
+    background-color: rgb(233, 233, 233);
+
+}
+
+.todoItem{
+    width:300px;
+    display:flex;
+    position: relative; 
+    width: 100%; 
+    padding:2px;
+   
+}
+.doneBtn,
+.deleteBtn{
+    position: absolute; 
+    right: 0; 
+}
+.doneBtn{
+    margin-right:30px;
+}
+.round:hover,
+.addBtn:hover,
+.doneBtn:hover,
+.deleteBtn:hover {
+    color:#222;
+    cursor: pointer;
+}

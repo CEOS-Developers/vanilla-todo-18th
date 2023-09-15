@@ -8,7 +8,30 @@
   </head>
 
   <body>
-    <div class="container"></div>
+    <div class="container">
+      <div class = "header">
+          <div class = "round Red" ></div>
+          <div class = "round Yellow" ></div>
+          <div class = "round Green " ></div>
+      </div>
+      <h1> ✏️ Todo List </h1>
+      <h3 id ="date">2022년 9월 15일</h3>
+      <div class ="todoInput">
+        <input type = "text"  id="inputTodo" placeholder="📍 Enter your to-do">
+        <div class ="addBtn"> ➕ </div>
+      </div>
+
+      <div class = "todoContainer">
+        <h2>😢  List To Do : <span id="todoCount">0</span></h2>
+        <div id = "todoList"></div>
+      </div>
+
+      <div class = "doneContainer">
+        <h2> 😆 List Done : <span id="doneCount">0</span> </h2>  
+        <div id = "doneList"></div>
+      </div>
+
+    </div>
   </body>
   <script src="script.js"></script>
 </html>
