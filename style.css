@@ -69,16 +69,13 @@ h3{
     background-color: rgb(233, 233, 233);
 
 }
-.deleteBtn{
-    position:fixed;
-    right:280px;
-}
-.doneBtn{
-    position:fixed;
-    right:310px;
-}
+
 .todoItem{
     display:flex;
-    justify-content: space-between;
-    width: 100%;
+   
+}
+.doneBtn{
+    margin-left:180px;   
+    margin-right:10px;  
+
 }
