@@ -3,12 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla Todo</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Todo List</title>
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/board.css" />
   </head>
 
   <body>
-    <div class="container"></div>
+    <div class="container">
+      <header>
+        <div class="todoTitle">TO-DO LIST</div>
+        <div class="headerBtnWrapper">
+          <div class="headerBtn" id="totalTodo"></div>
+          <div class="headerBtn" id="nowTodo"></div>
+          <div class="headerBtn" id="doneTodo"></div>
+        </div>
+      </header>
+      <div class="todoBoardList"></div>
+      <div class="boards">
+        <div class="board" id="toDoBoard">
+          <div class="addListWrapper">
+            <input
+              class="boardInput"
+              id="todoBoardInput"
+              placeholder="입력하세요"
+            />
+            <button class="addTodoList" id="todoAdd">+</button>
+          </div>
+          <div id="todoList"></div>
+        </div>
+      </div>
+    </div>
   </body>
-  <script src="script.js"></script>
+  <script src="./script/header.js"></script>
+  <script src="./script/todo.js"></script>
 </html>

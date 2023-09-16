@@ -1,0 +1,217 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+section {
+  display: block;
+}
+body {
+  position: relative;
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  font-size: 10px; /* Default font size */
+
+  /* Media query for tablet */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 8px;
+  }
+
+  /* Media query for mobile */
+  @media (min-width: 450px) and (max-width: 768px) {
+    font-size: 6px;
+  }
+  @media (max-width: 450px) {
+    font-size: 4px;
+  }
+}
+
+@font-face {
+  font-family: "GangwonState";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/GangwonState.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Giants-Inline";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/Giants-Inline.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.container {
+  padding-top: 6rem;
+  min-width: 370px;
+  min-height: 100vh;
+  background: linear-gradient(to right, #dddddd, #ffffff, #dddddd);
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 5rem;
+}
+
+header > div {
+  font-size: 10rem;
+  font-weight: 500;
+  font-weight: 600;
+  margin-bottom: 4rem;
+  font-family: "Giants-Inline";
+}
+
+header > button {
+  font-size: 5rem;
+  position: absolute;
+  background: transparent;
+  border-radius: 1rem;
+  right: 0;
+}
+
+.headerBtn {
+  width: 17rem;
+  height: 6rem;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  border-radius: 1rem;
+}
+
+.headerBtnWrapper {
+  font-size: 4rem;
+  display: flex;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+#totalTodo {
+  background-color: wheat;
+}
+
+#nowTodo {
+  background-color: skyblue;
+  margin: 0 3rem;
+}
+
+#doneTodo {
+  background-color: pink;
+}

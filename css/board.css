@@ -1,0 +1,72 @@
+.boards {
+  width: 100%;
+  padding: 5rem 0;
+}
+
+.board {
+  width: 100%;
+  font-size: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 8rem;
+  font-family: "GangwonState";
+}
+
+.boardName {
+  margin-bottom: 4rem;
+}
+
+.boardInput {
+  width: 60rem;
+  height: 5rem;
+  padding: 1rem;
+  margin-right: 2rem;
+  font-size: 3.5rem;
+  border: none;
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(to left, white, black);
+  border-image-slice: 1;
+  background-color: transparent;
+}
+
+.todoWrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.addTodoList {
+  width: 8rem;
+  height: 7rem;
+  padding: 1rem;
+  font-size: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+}
+
+.addListWrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.deleteBtn {
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1rem;
+  border: none;
+  font-size: 4rem;
+  color: gray;
+}
+
+.todoCheckbox {
+  margin-right: 1.2rem;
+  width: 3rem;
+  height: 3rem;
+}
